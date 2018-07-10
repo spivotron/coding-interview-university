@@ -36,5 +36,27 @@ int main(int argc, const char * argv[]) {
         printf("%3.0f %6.1f\n", celsius, fahr);
         celsius = celsius + step;
     }
+    
+    // using the for statement
+    
+    for (int fahr = 0; fahr <= 300; fahr = fahr + 20) {
+        printf("%3d %6.1f \n", fahr, (5.0/9.0)* (fahr - 32));
+    }
+    
+    // file copying
+    int c;
+//    c = getchar();
+//    while(c != EOF) {
+//        putchar(c);
+//        c = getchar();
+//    }
+    
+    // copying input v2
+    while ( (c = getchar()) != EOF) {
+        putchar(c);
+    }
+    
+    
+    
     return 0;
 }
