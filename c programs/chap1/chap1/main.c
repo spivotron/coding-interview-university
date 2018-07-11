@@ -56,6 +56,61 @@ int main(int argc, const char * argv[]) {
         putchar(c);
     }
     
+    // char counting with while
+    long nc;
+    nc = 0;
+    while ( (getchar() != EOF) ) {
+        ++nc;
+    printf("%1d\n", nc);
+    }
+    // char counting with for
+    // handling bigger numbers with double
+    double nc2;
+    for (nc2 = 0; getchar()  != EOF; ++nc2) {
+        ;
+    printf("%.0f", nc2);// 0 suppresses the decimal
+    }
+    
+    // line counting
+    int c, n1;
+    n1 = 0;
+    while ( (c = getchar()) != EOF ) {
+        if(c == '\n') {
+            ++n1;
+        }
+    printf("%d\n", n1);
+    }
+    
+    
+    // word counting
+    #define IN 1
+    #define OUT 0
+    int c3, nlines, nwords, numchars, state;
+    state = OUT;
+    nlines = nwords = numchars = 0;
+    while ( (c = getchar()) != EOF ) {
+        ++nc;
+        if (c == '\n') {
+            ++nlines;
+        }
+        if (c == ' ' || c == '\n' || c == '\t') {
+            state = OUT;
+        }
+        else if (state == OUT) {
+            state = IN;
+            ++nwords;
+        }
+    }
+    printf("%d %d %d\n", nlines, nwords, numchars);
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     return 0;
