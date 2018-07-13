@@ -7,7 +7,7 @@ pieces = reply.split()
 # print(pieces)
 x = float(pieces[0])
 y = float(pieces[1])
-print(x,y, sep=':')
+print(x,y, sep=' : ')
 
 
 # Files
