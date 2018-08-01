@@ -132,6 +132,26 @@ class MyLinkedList:
         return self.size
 
 
+    def hasCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        if head is None:
+            return False
+        if head.next is None or head.next.next is None:
+            return False
+        else:
+            current = head
+            _next = head
+            while _next is not None and _next.next is not None:
+                current = current.next
+                _next = _next.next.next
+
+                if current == _next:
+                    return True
+
+
 
 
 # Your MyLinkedList object will be instantiated and called as such:
