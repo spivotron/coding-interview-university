@@ -177,8 +177,9 @@ class MyLinkedList:
                 headB = headB.next
             else:
                 return None
+
     def removeNthFromEnd(self, head, n):
-        
+
 
 
 
