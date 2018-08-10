@@ -139,8 +139,9 @@ class MyLinkedList:
         """
         if head is None:
             return False
-        if head.next is None or head.next.next is None:
-            return False
+        # don't need this because it gets taken care of below
+        # if head.next is None or head.next.next is None:
+        #     return False
         else:
             current = head
             _next = head
@@ -150,6 +151,35 @@ class MyLinkedList:
 
                 if current == _next:
                     return True
+
+
+    def detectCycle(self, head):
+        nodes = set() # for maintaining a unique collection of Elements
+        while head:
+            if head in nodes:
+                return head
+            nodes.add(head)
+            head = head.next
+        return None
+
+    def getIntersectionNode(self,headA, headB):
+        l = []
+        if headA is None or headB is None:
+            return None
+        while headA.next:
+            l.append(headA.val)
+            headA= headA.next
+        l.append(headA.val)
+        while headB:
+            if headB in l:
+                return headB
+            elif headB.next:
+                headB = headB.next
+            else:
+                return None
+
+    def removeNthFromEnd(self, head, n):
+
 
 
 
