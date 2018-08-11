@@ -1,0 +1,2 @@
+class AfticlesController < ApplicationController
+end
