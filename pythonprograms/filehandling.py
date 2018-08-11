@@ -33,6 +33,3 @@ my_file.write("Second line \n")
 my_file.close()
 
 for line in open("test2.txt"):print(line)
-
-
-
