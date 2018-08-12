@@ -1,7 +1,7 @@
 class Node(object):
     def __init__(self, value):
         self.value = value
-        self.next = None
+        self.next, self.prev = None, None
 
 class MyLinkedList:
 
@@ -47,8 +47,11 @@ class MyLinkedList:
         :rtype: void
         """
         # current = self.head
-        newNode= Node(val)
-        newNode.next, self.head = self.head, newNode
+        newNode = Node(val)
+        # print(self.head.value)
+        self.head = newNode
+        newNode.next = self.head
+
         self.size  += 1
         # newNode = current
 
@@ -60,12 +63,16 @@ class MyLinkedList:
         :rtype: void
         """
         current = self.head
-        if self.head:
-            while current.next:
-                current = current.next
-            current.next = Node(val)
+        newNode = Node(val)
+
+        if current:
+            print(Node(current.next).value)
+            # while current.next != None:
+            #     current = current.next
+            # current.next = newNode
+            # newNode = current
         else:
-            self.head = Node(val)
+            self.head = newNode
 
         self.size += 1
 
@@ -88,8 +95,12 @@ class MyLinkedList:
                 current = current.next # keep going next until you hit the next to last one from the index
 
             newNode = Node(val)
-            newNode.next = current.next
             current.next = newNode
+            newNode.prev = current
+
+            newNode.next = current.next
+            current.next.prev = newNode
+
             self.size += 1
 
         # current = self.head
@@ -123,93 +134,21 @@ class MyLinkedList:
                 current = current.next
             if current.next:
                 current.next = current.next.next
+                current.next.prev = current.prev
             else:
                 return
         self.size -= 1
 
 
-    def getSize(self):
-        return self.size
-
-
-    def hasCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
-        if head is None:
-            return False
-        # don't need this because it gets taken care of below
-        # if head.next is None or head.next.next is None:
-        #     return False
-        else:
-            current = head
-            _next = head
-            while _next is not None and _next.next is not None:
-                current = current.next
-                _next = _next.next.next
-
-                if current == _next:
-                    return True
-
-
-    def detectCycle(self, head):
-        nodes = set() # for maintaining a unique collection of Elements
-        while head:
-            if head in nodes:
-                return head
-            nodes.add(head)
-            head = head.next
-        return None
-
-    def getIntersectionNode(self,headA, headB):
-        l = []
-        if headA is None or headB is None:
-            return None
-        while headA.next:
-            l.append(headA.val)
-            headA= headA.next
-        l.append(headA.val)
-        while headB:
-            if headB in l:
-                return headB
-            elif headB.next:
-                headB = headB.next
-            else:
-                return None
-
-    def removeNthFromEnd(self, head, n):
-        difference = self.length(head) - n
-        if difference == 0:
-            return head.next
-        current = head
-        for __ in range(difference - 1):
-            current = current.next
-        if current.next:
-            nextNode = current.next.next
-            current.next= nextNode
-        elif current.next.next  == None:
-            curent.next = None
-        return head
-
-    def length(self, head):
-        size = 0
-        current = head
-        while current != None:
-            current = current.next
-            size +=1
-        return size
-
 
 # Your MyLinkedList object will be instantiated and called as such:
 obj = MyLinkedList()
-param_1 = obj.get(0)
-obj.addAtHead(1)
-# obj.addAtHead(1)
-obj.addAtTail(3)
-print(obj.get(1))
-obj.addAtIndex(1, 2)
-print(obj.get(1))
-obj.deleteAtIndex(1)
-print(obj.get(1))
-print("size is ", obj.getSize())
+# obj.addAtIndex(0,1)
+obj.addAtHead(2)
+# print(obj.get(0))
+obj.addAtTail(2)
+
+# print(obj.get(1))
+
+# obj.addAtIndex(i,val)
+# obj.deleteAtIndex(index)
