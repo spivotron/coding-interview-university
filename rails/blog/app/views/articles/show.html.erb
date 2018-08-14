@@ -13,11 +13,16 @@
   <%= @article.release_date %>
 </p>
 
+<p>
+  <strong>Genre: </strong>
+  <%= @article.genre %>
+</p>
+
 <h2>Comments</h2>
 <%= render @article.comments %>
 
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
-<% link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

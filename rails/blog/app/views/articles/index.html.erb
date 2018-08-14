@@ -2,6 +2,7 @@
 <%= link_to 'New Article', new_article_path %>
 <table>
   <tr>
+    <th>Image</th>
     <th>Title</th>
     <th>Text</th>
     <th>Release Date</th>
@@ -10,6 +11,7 @@
 
   <% @articles.each do |article| %>
   <tr>
+    <td><img src="<%= article.image %>" /></td>
     <td><%= article.title %></td>
     <td><%= article.text %></td>
     <td><%= article.release_date %></td>

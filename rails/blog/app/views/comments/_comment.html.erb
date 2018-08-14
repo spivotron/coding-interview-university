@@ -1,10 +1,15 @@
 <p>
-  <strong>Commenter:</strong>
+  <strong>Name:</strong>
   <%= comment.commenter %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong><%= comment.commenter + "'s " %>Rating:</strong>
+  <%= comment.rating %>
+</p>
+
+<p>
+  <strong><%= comment.commenter + "'s " %>Comment:</strong>
   <%= comment.body %>
 </p>
 

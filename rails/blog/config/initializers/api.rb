@@ -1,11 +1,7 @@
 require 'rest-client'
 
-
-#New York Times API endpoint
-nyt_url = "https://api.themoviedb.org/3/movie/550?api_key=f816912831ec92fbe9e10762bb01c252
-"
 #RestClient get request to the NYT endpoint with my API Key being parsed into a JS object
-data = JSON.parse( RestClient.get("https://api.themoviedb.org/3/movie/551?api_key=f816912831ec92fbe9e10762bb01c252"))
+data = JSON.parse( RestClient.get("https://api.themoviedb.org/3/movie/555?api_key=f816912831ec92fbe9e10762bb01c252"))
 #Iterating through each result/article of the NYT
 data.each do |key, value|
   #finding existing articles
@@ -17,6 +13,8 @@ data.each do |key, value|
       news = Article.new do |key|
         key.title  = data['original_title']
         key.release_date = data['release_date']
+        key.genre = data['genres'][0]['name']
+        key.image = "https://image.tmdb.org/t/p/w300" +data['poster_path']
         # key.headline = article["title"]
         # key.news_station = "New York Times"
         # key.abstract = article["abstract"]
@@ -32,7 +30,7 @@ data.each do |key, value|
       end
       #Saving articles
       if news.save
-        puts "saved nyt"
+        puts "saved"
       else
         puts "not saved"
       end

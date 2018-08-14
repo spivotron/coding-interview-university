@@ -1,6 +1,12 @@
 <%= form_with(model: [@article, @article.comments.build], local: true) do |form| %>
+
 <p>
-  <%= form.label :commenter %><br>
+  <%= form.label "Your rating" %><br>
+  <%= form.number_field :rating, min: 1.0, max: 4.0, :step => 1, class: "rating", placeholder: "1 – 4" %>
+</p>
+
+<p>
+  <%= form.label "Your Name"%><br>
   <%= form.text_field :commenter %>
 </p>
 
