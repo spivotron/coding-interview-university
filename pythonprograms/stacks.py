@@ -24,9 +24,9 @@ class ArrayStack:
         return self._data.pop()
     """
     S.push(e)
-    O(1)∗
+    O(1)
     S.pop()
-    O(1)∗
+    O(1)
     S.top( )
     O(1)
     S.is empty()
@@ -82,7 +82,7 @@ def is_matched(expr):
             if righty.index(c) != lefty.index(S.pop()):
                 return False
     return S.is_empty()
-match = '[(5+x)-(y+z)]'
+match = '[(5+x)-(y+z)))))]'
 print(is_matched(match))
 
 
@@ -104,5 +104,5 @@ def is_matched_html(raw):
         next = raw.find('<', next+1)
     return S.is_empty()
 
-html = "<body></body>"
-print(is_matched_html(html))
+html = "<body>  </body>"
+# print(is_matched_html(html))
