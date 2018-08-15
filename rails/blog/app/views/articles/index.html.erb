@@ -1,23 +1,36 @@
 <h1>Listing articles</h1>
 <%= link_to 'New Article', new_article_path %>
-<table>
-  <tr>
-    <th>Image</th>
-    <th>Title</th>
-    <th>Text</th>
-    <th>Release Date</th>
-    <th></th>
-  </tr>
+<div>
+
 
   <% @articles.each do |article| %>
-  <tr>
-    <td><img src="<%= article.image %>" /></td>
-    <td><%= article.title %></td>
-    <td><%= article.text %></td>
-    <td><%= article.release_date %></td>
-    <td><%= link_to 'Show', article_path(article) %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}%></td>
-  </tr>
+  <div>
+    <p><img src="<%= article.image %>" /></p>
+    <p><%= article.title %></p>
+    <p><%= article.text %></p>
+    <p><%= article.release_date %></p>
+    <p>
+
+    <% article.comments.each do |comment| %>
+    <div>
+    <% comment.rating.times do  %>
+      <span class="glyphicon glyphicon-star"></span>
+    <% end %>
+    <% (4-comment.rating).times do  %>
+      <span class="glyphicon glyphicon-star-empty"></span>
+    <% end %>
+    </div>
+
+
+      <!-- <%= comment.rating %> -->
+    <% end %>
+
+
+    </p>
+    <p><%= link_to 'Show', article_path(article) %></p>
+    <p><%= link_to 'Edit', edit_article_path(article) %></p>
+    <p><%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}%></p>
+
+  </div>
   <% end %>
-</table>
+</div>

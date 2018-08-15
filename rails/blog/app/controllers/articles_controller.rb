@@ -8,7 +8,10 @@ class ArticlesController < ApplicationController
 
   def index
     @articles= Article.all
+
   end
+
+
 
   def edit
     @article = Article.find(params[:id])
@@ -50,5 +53,10 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :text)
     end
+
+    # def blank_stars
+    #   @comments = Article.find(params[:id]).comments
+    #   5 - rating.to_i
+    # end
 
 end
