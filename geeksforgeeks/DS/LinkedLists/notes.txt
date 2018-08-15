@@ -1,0 +1,7 @@
+Why LinkedLists?
+Pros
+1. Size is fixed
+2. Ease of Insertion/Deletion
+Cons
+1. Random Access is not allowed, must traverse the whole list to find what you want
+2. Extra memory must be allocated for next pointer
