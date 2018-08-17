@@ -4,6 +4,11 @@
 </p>
 
 <p>
+  <strong>Email:</strong>
+  <%= comment.email %>
+</p>
+
+<p>
   <strong><%= comment.commenter + "'s " %>Rating:</strong>
   <%= comment.rating %>
 </p>
@@ -13,6 +18,13 @@
   <%= comment.body %>
 </p>
 
+
 <p>
-  <%= link_to 'Destroy comment', [comment.article, comment], method: :delete, data: {confirm: "Are you sure?"} %>
+  <strong>Movie Id</strong>
+  <%= comment.movieID %>
+</p>
+
+<p>
+  <strong>Movie name</strong>
+  <%= comment.movie_name %>
 </p>

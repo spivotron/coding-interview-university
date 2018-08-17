@@ -1,13 +1,13 @@
 class ArticlesController < ApplicationController
 
-  # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-
   def new
     @article = Article.new
   end
 
   def index
     @articles= Article.all
+
+    @recent_comments = Comment.limit(4).order("created_at desc").all
   end
 
   def sort_by_date
@@ -38,7 +38,6 @@ class ArticlesController < ApplicationController
       render 'new'
     end
 
-    # render plain: params[:article].inspect
   end
 
   def update
@@ -56,12 +55,6 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-
-  def pleaseWork
-    puts "hello"
-  end
-
-
   def show
     @article = Article.find(params[:id])
   end
@@ -70,10 +63,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :text)
     end
-
-    # def blank_stars
-    #   @comments = Article.find(params[:id]).comments
-    #   5 - rating.to_i
-    # end
 
 end

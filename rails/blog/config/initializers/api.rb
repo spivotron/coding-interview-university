@@ -12,6 +12,7 @@ results.each do |resultKey, value|
       movie = Article.new do |key|
         key.title  = resultKey['original_title']
         key.release_date = resultKey['release_date']
+        key.text = resultKey['overview']
         key.genre =  genre_ids['genres'].find{|g| g['id']==resultKey['genre_ids'][0]}['name']
         key.image = "https://image.tmdb.org/t/p/w300" +resultKey['poster_path']
 
