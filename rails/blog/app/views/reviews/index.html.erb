@@ -1,0 +1,19 @@
+
+<h2>All Reviews</h2>
+
+<% @reviews.each do |comment| %>
+<div>
+<%= comment.commenter %> - "<%= comment.body %>"
+
+<% comment.rating.times do  %>
+  <span class="glyphicon glyphicon-star"></span>
+<% end %>
+<% (4-comment.rating).times do  %>
+  <span class="glyphicon glyphicon-star-empty"></span>
+<% end %>
+
+<p><%= link_to 'Read More about ' + comment.movie_name, article_path(comment.movieID) %></p>
+
+</div>
+
+<% end %>

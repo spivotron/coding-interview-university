@@ -1,4 +1,4 @@
-<h1>Movie Database</h1>
+<h1>MovieSpy</h1>
 <div>
 <%= link_to "Sort By Date", sort_by_date_articles_path %>
 <%= link_to "Sort By Title", sort_by_title_articles_path%>
@@ -45,4 +45,5 @@
 <p><%= link_to 'Read More about ' + comment.movie_name, article_path(comment.movieID) %></p>
 
 </div>
+
 <% end %>

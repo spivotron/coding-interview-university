@@ -6,7 +6,6 @@ class ArticlesController < ApplicationController
 
   def index
     @articles= Article.all
-
     @recent_comments = Comment.limit(4).order("created_at desc").all
   end
 
