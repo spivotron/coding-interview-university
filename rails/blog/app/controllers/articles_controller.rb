@@ -8,10 +8,22 @@ class ArticlesController < ApplicationController
 
   def index
     @articles= Article.all
-
   end
 
+  def sort_by_date
+    @articles = Article.all.sort_by{|m| m.release_date}
+    render 'index'
+  end
 
+  def sort_by_title
+    @articles = Article.all.sort_by{|m| m.title}
+    render 'index'
+  end
+
+  def sort_by_genre
+    @articles = Article.all.sort_by{|m| m.genre}
+    render 'index'
+  end
 
   def edit
     @article = Article.find(params[:id])
@@ -42,6 +54,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
+  end
+
+
+  def pleaseWork
+    puts "hello"
   end
 
 
