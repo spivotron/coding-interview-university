@@ -1,26 +1,43 @@
-<p>
-  <strong>Title: </strong>
-  <%= @article.title %>
-</p>
+<div class="container">
+<div class="row">
+  <div class="page-header">
+    <h1><%= @article.title %></h1>
+  </div>
+  <div class="panel panel-default">
 
-<p>
-  <strong>Movie Description: </strong>
-  <%= @article.text %>
-</p>
+    <div class="panel-body">
+      <div>
+          <img class="col-xs-6 col-md-3" src="<%= @article.image %>" />
+          <div class="caption">
+            <p>
+              <strong>Movie Description: </strong>
+              <%= @article.text %>
+            </p>
+            <p>
+              <strong>Release Date: </strong>
+              <%= @article.release_date %>
+            </p>
+            <p>
+              <strong>Genre: </strong>
+              <%= @article.genre %>
+            </p>
+            <p>
+              <h2>Reviews for <%= @article.title %></h2>
+              <%= render @article.comments %>
+            </p>
+              <%= render 'comments/form' %>
 
-<p>
-  <strong>Release Date: </strong>
-  <%= @article.release_date %>
-</p>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Genre: </strong>
-  <%= @article.genre %>
-</p>
 
-<h2>Reviews</h2>
-<%= render @article.comments %>
+  </div>
+</div>
+</div>
 
-<h2>Add a Review:</h2>
-<%= render 'comments/form' %>
-<%= link_to 'Back to all Movies', articles_path %>
+<nav aria-label="...">
+  <ul class="pager">
+    <li><%= link_to 'Back to all Movies', articles_path %></li>
+  </ul>
+</nav>

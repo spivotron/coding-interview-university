@@ -1,19 +1,43 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MovieSpy</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-<h2>All Reviews</h2>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Movies", articles_path %></li>
+        <li><%= link_to "Reviews", reviews_path%></li>
+      </ul>
 
-<% @reviews.each do |comment| %>
-<div>
-<%= comment.commenter %> - "<%= comment.body %>"
+    </div>
 
-<% comment.rating.times do  %>
-  <span class="glyphicon glyphicon-star"></span>
-<% end %>
-<% (4-comment.rating).times do  %>
-  <span class="glyphicon glyphicon-star-empty"></span>
-<% end %>
-
-<p><%= link_to 'Read More about ' + comment.movie_name, article_path(comment.movieID) %></p>
-
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-6 col-lg-12">
+  <div class="panel panel-default">
+  <div class="panel-heading"><h2>All Reviews</h2></div>
+    <div class="panel-body">
+      <% @reviews.each do |comment| %>
+        <div>
+          <%= comment.commenter %> - "<%= comment.body %>"
+          <% comment.rating.times do  %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% (4-comment.rating).times do  %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+          <p><%= link_to 'Read More about ' + comment.movie_name, article_path(comment.movieID) %></p>
+        </div>
+    <% end %>
+    </div>
+  </div>
+  </div>
 </div>
-
-<% end %>
+</div>

@@ -11,16 +11,19 @@ class ArticlesController < ApplicationController
 
   def sort_by_date
     @articles = Article.all.sort_by{|m| m.release_date}
+    @recent_comments = Comment.limit(4).order("created_at desc").all
     render 'index'
   end
 
   def sort_by_title
     @articles = Article.all.sort_by{|m| m.title}
+    @recent_comments = Comment.limit(4).order("created_at desc").all
     render 'index'
   end
 
   def sort_by_genre
     @articles = Article.all.sort_by{|m| m.genre}
+    @recent_comments = Comment.limit(4).order("created_at desc").all
     render 'index'
   end
 

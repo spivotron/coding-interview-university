@@ -1,30 +1,35 @@
+<div class="container">
+<div>
+  <h2>Add a Review:</h2>
 <%= form_with(model: [@article, @article.comments.build], local: true) do |form| %>
-
+<div class="form-group">
 <%= form.hidden_field :movieID, :value => @article.id %>
 <%= form.hidden_field :movie_name, :value => @article.title %>
-
-<p>
+</div>
+<div class="form-group">
   <%= form.label "Your rating" %><br>
   <%= form.number_field :rating, min: 1.0, max: 4.0, :step => 1, class: "rating", placeholder: "1 – 4" %>
-</p>
+</div>
 
-<p>
+<div class="form-group">
   <%= form.label "Your Name"%><br>
   <%= form.text_field :commenter %>
-</p>
+</div>
 
-<p>
+<div class="form-group">
   <%= form.label "Your Email"%><br>
   <%= form.email_field :email %>
-</p>
+</div>
 
-<p>
+<div class="form-group">
   <%= form.label :body %><br>
   <%= form.text_area :body %>
-</p>
+</div>
 
 <p>
   <%= form.submit %>
 </p>
-
+</div>
 <% end %>
+</div>
+</div>
