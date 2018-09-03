@@ -201,15 +201,33 @@ class MyLinkedList:
         return size
 
 
+    def middleNode(self, head):
+        _length = self.length(head)
+        current = head
+        if _length == 0 or _length == 1:
+            return None
+        elif _length % 2 ==0:
+            for i in range(_length):
+                current = current.next
+            
+            return current
+        else:
+            for i in range(_length % 2 +1):
+                current = current.next
+            print(current.value)
+            return current
+
 # Your MyLinkedList object will be instantiated and called as such:
 obj = MyLinkedList()
 param_1 = obj.get(0)
 obj.addAtHead(1)
 # obj.addAtHead(1)
 obj.addAtTail(3)
-print(obj.get(1))
+# print(obj.get(1))
 obj.addAtIndex(1, 2)
-print(obj.get(1))
-obj.deleteAtIndex(1)
-print(obj.get(1))
-print("size is ", obj.getSize())
+obj.addAtIndex(2, 3)
+# print(obj.get(1))
+# obj.deleteAtIndex(1)
+# print(obj.get(1))
+print (obj.middleNode(obj.head))
+# print("size is ", obj.getSize())
