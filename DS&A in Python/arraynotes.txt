@@ -1,0 +1,6 @@
+methods
+deepcopy
+list.extend(extras) list receives references to extras
+
+Compact Array
+Instead of an array of references, it is an array containing the bits that represent the primary data
