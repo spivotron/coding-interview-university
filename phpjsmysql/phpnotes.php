@@ -66,3 +66,9 @@ $a = 7; // both a and b are 7 because a and b point to the same piece of memory
 
 type operator
 use instanceof
+
+
+include statement -- fetches a particular file and loads all its contents
+include_once -- ignores subsequent requests to include the file
+
+encapsulation -- writing a class in a way that only its methods can be used to manipulate its properties
