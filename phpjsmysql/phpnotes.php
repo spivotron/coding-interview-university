@@ -68,7 +68,28 @@ type operator
 use instanceof
 
 
-include statement -- fetches a particular file and loads all its contents
+include statement -- attempts to load a particular file and loads all its contents. Program execution continues if the file isn't found.
 include_once -- ignores subsequent requests to include the file
+Require -- fetches the file because it is necessary
 
 encapsulation -- writing a class in a way that only its methods can be used to manipulate its properties
+
+
+
+difference between public, protected and private
+public: can be referenced anywhere, incuding by other classes and instances of the object
+protected: referenced only by the objects class methods and those of any subclasses
+private: referenced only by methods within the same class
+
+
+static methods
+called on a class, not on an object
+
+
+Recap of Variable Scope
+
+Local variables are accessible just from the part of your code where you define them. If they’re outside of a function, they can be accessed by all code outside of functions, classes, and so on. If a variable is inside a function, only that function can access the variable, and its value is lost when the function returns.
+
+Global variables are accessible from all parts of your code.
+
+Static variables are accessible only within the function that declared them but retain their value over multiple calls.
