@@ -151,4 +151,81 @@
     }
   }
 
+  // Singleton
+  // class Singleton {
+  //   private static $instance = null;
+  //
+  //   private function __construct() {
+  //     // private constructor prevents the direct creation of objects from the class
+  //     // stuff
+  //   }
+  //
+  //   public static function getInstance() {
+  //     if (self::instance == null){
+  //       self::instance = new Singleton();
+  //     }
+  //     return self::instance;
+  //   }
+  // }
+
+    // DB Connection Singleton
+    class ConnectDB {
+      private static $instance=  null;
+      private $conn;
+
+      private $host = 'localhost';
+      private $user = 'root';
+      private $pass= 'root';
+      private $name = 'vexata';
+
+      private function __construct() {
+        $this->conn = new PDO("mysql: host={$this->host};dbname={$this->name}", $this->user, $this->pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+      }
+
+      public static function getInstance() {
+        if (!self::$instance) {
+          self::$instance = new ConnectDB();
+        }
+        return self::instance;
+      }
+
+      public function getConnection() {
+        return $this->conn;
+      }
+
+    }
+
+
+    $instance = ConnectDb::getInstance();
+    $conn = $instance->getConnection();
+    var_dump($conn);
+
+
+    class Automobile {
+      private $vehicleMake;
+      private $vehicleModel;
+
+      public function __construct($make, $model) {
+        $this->vehicleMake = $make;
+        $this->vehicleModel = $model;
+      }
+
+      public function getMakeAndModel() {
+        return $this->vehicleMake . ' ' . $this->vehicleModel;
+      }
+
+    }
+
+    class AutomobileFactory {
+      public static function create($make, $model) {
+        return new Automobile($make, $model);
+      }
+    }
+
+    $veyron = AutomobileFactory::create('Bugatti', 'Veyron');
+    print_r($veyron->getMakeAndModel())
+
+
+
 ?>

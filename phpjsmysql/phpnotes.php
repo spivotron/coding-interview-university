@@ -93,3 +93,87 @@ Local variables are accessible just from the part of your code where you define 
 Global variables are accessible from all parts of your code.
 
 Static variables are accessible only within the function that declared them but retain their value over multiple calls.
+
+
+PHP sessions
+Either creates or resumes a session based on an identifier that is sent to hte server via a GET or POST request or a Cookie.  The most common use case is when
+a website won't let you comment or post without first prompiting a login.  How does it know? One way would be to place a cookie in the users browser and on
+every request, the cookie is sent to the server where PHP can be used to determine what gets shown to the user.  Session_start() saves session data in files by default
+but it is possible to save sessions in the databse
+
+How are classes loaded in PHP?
+Make use of autoloading
+Whenever a class is instantiated a function is triggered.
+
+Design Patterns
+Singleton and Factory
+A singleton pattern ensures that you always get back the same instance of whatever type you are retrieving, whereas the factory pattern generally gives you a different instance of each type.
+
+The purpose of the singleton is where you want all calls to go through the same instance. An example of this might be a class that manages a disk cache, or gets data from a static dictionary; wherever it is important only one known instance interacts with the resource. This does make it less scalable.
+
+The purpose of the factory is to create and return new instances. Often, these won't actually be the same type at all, but they will be implementations of the same base class. However, there may be many instances of each type
+
+Difference between classes and interfaces
+interface is a class without all the business logic.  in an interface all methods must be public and multiple inheritance is supported
+all methods must be defined within the class that inherits them
+
+Abstract classes can be declared with public and can define properties or variables
+Abstract classes don't support multiple inheritance and be extended by only one abstract class .
+
+
+$x = 2
+$y = 4
+$z = 6
+
+
+if($z > $y > $x) {
+    echo “true”;
+}else{
+    echo “false”;
+}
+
+prints false because $z > $y returns 1
+
+Arrays
+
+$paper = array('Copier', 'Inkjet', 'Laser', 'Photo');
+$j = 0;
+foreach($paper as $item) {
+  echo "$j: $item<br>";
+  ++$j;
+}
+
+
+Associative Arrays
+$paper = array('copier' => "Copier & Multipurpose",
+               'inkjet' => "Inkjet Printer",
+               'laser' => "Laser Printer",
+               'photo' => "Photographic Paper");
+foreach($paper as $item => $description) {
+  echo "$item: $description";
+}
+
+Using Explode
+$temp = explode(' ', "This is a sentence with seven words");
+print_r($temp);
+
+
+Using Compact
+create an array from variables and their values
+$fname         = "Doctor";
+$sname         = "Who";
+$planet        = "Gallifrey";
+$system        = "Gridlock";
+$constellation = "Kasterborous";
+
+$contact = compact('fname', 'sname', 'planet', 'system', 'constellation');
+
+print_r($contact);
+
+Compact plus Explode
+$j       = 23;
+$temp    = "Hello";
+$address = "1 Old Street";
+$age     = 61;
+
+print_r(compact(explode(' ', 'j temp address age')));
