@@ -177,3 +177,52 @@ $address = "1 Old Street";
 $age     = 61;
 
 print_r(compact(explode(' ', 'j temp address age')));
+
+
+Opening files
+$fh = fopen('testfile.txt', 'w') or die('Failed to create file');
+$text = <<<_END
+LINE 1
+Line 2
+Line tres
+_END;
+
+fwrite($fh, $text) or die('Could not write to file');
+fclose($fh);
+echo "File 'testfile.txt' written succesfully";
+
+Reading from files
+$fh = fopen('textfile.txt', 'r') or die('File I/O error');
+$line = fgets($fh);
+fclose($fh);
+echo $line; // LINE 1
+
+Using fread
+$fh = fopen('textfile.txt', 'r') or die('File I/O error');
+$text = fread($fh, 3); // reads 3 characters
+fclose($fh);
+echo $text; // LIN
+
+Reading an entire file
+use file_get_contents
+echo file_get_contents("testfile.txt")
+
+// uploading a file
+echo <<<_END
+   <html><head><title>PHP Form Upload</title></head><body>
+   <form method='post' action='upload.php' enctype='multipart/form-data'>
+   Select File: <input type='file' name='filename' size='10'>
+   <input type='submit' value='Upload'>
+   </form>
+_END;
+
+ if ($_FILES)
+ {
+   $name = $_FILES['filename']['name'];
+   move_uploaded_file($_FILES['filename']['tmp_name'], $name);
+   echo "Uploaded image '$name'<br><img src='$name'>";
+ }
+
+ echo "</body></html>";
+
+ // validation
