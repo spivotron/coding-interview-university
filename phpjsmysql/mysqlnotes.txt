@@ -1,0 +1,24 @@
+creating a DB
+
+CREATE DATABASE db;
+
+USE db;
+
+
+creating users
+GRANT priveleges on db.object TO  'username'@'hostname' IDENTIFIED BY 'password';
+
+creating a table
+CREATE TABLE classics (
+ author VARCHAR(128),
+ title VARCHAR(128),
+ type VARCHAR(16),
+ year CHAR(4)) ENGINE InnoDB;
+
+ Describe
+ Outputs the db as a table
+
+ Indexes
+ allow for fast searching
+
+ Fulltext Indexes work by allowing whole columns to be searched

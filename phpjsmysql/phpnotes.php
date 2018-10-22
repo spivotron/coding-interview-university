@@ -94,7 +94,7 @@ Global variables are accessible from all parts of your code.
 
 Static variables are accessible only within the function that declared them but retain their value over multiple calls.
 
-
+Potential interview questions 
 PHP sessions
 Either creates or resumes a session based on an identifier that is sent to hte server via a GET or POST request or a Cookie.  The most common use case is when
 a website won't let you comment or post without first prompiting a login.  How does it know? One way would be to place a cookie in the users browser and on
